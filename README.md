@@ -1,4 +1,5 @@
 # site
+This is a site that does stuff but not really (yet ...)
 
 ## Project setup
 ```
