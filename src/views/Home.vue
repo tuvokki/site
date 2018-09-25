@@ -1,7 +1,7 @@
 <template>
   <div>
       <hero
-        image="@/assets/hero.png"
+        v-bind:image="require('@/assets/hero.png')"
         head="Welcome stranger"
         sub="Powered by Vuetify"
         link="/login"
@@ -51,68 +51,32 @@
         </v-layout>
       </section>
 
-      <section>
-        <v-parallax v-bind:src="require('@/assets/section.png')"  height="380">
-          <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="/login"
-            >
-              Get Started
-            </v-btn>
-          </v-layout>
-        </v-parallax>
-      </section>
+      <hero
+        v-bind:image="require('@/assets/section.png')"
+        head="Web development has never been easier"
+        sub="Kick-start your application today"
+        link="/login"
+        linktext="Get started"></hero>
 
       <section>
         <v-container grid-list-xl>
           <v-layout row wrap justify-center class="my-5">
             <v-flex xs12 sm4>
               <info-card headline="Company info">
-                  Our company is quite great, if I may say so. And yeas, I may, since our company is so great. 
+                  Our company is quite great, if I may say so. And yes, I may, since our company is so great. 
                   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
                   Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
               </info-card>
             </v-flex>
             <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card>
+              <contact-card headline="Contact us"
+              v-bind:contactInfo="[
+                {icon: 'phone', value: '777-867-5309'},
+                {icon: 'place', value: 'Chicago, US'},
+                {icon: 'email', value: 'my@greatcompany.com'}
+              ]">
+                We very much like it if you contact us. We like mail and phone and any other way we can get in touch. We like you, yes we do.
+              </contact-card>
             </v-flex>
           </v-layout>
         </v-container>
@@ -139,10 +103,11 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import Hero from '@/components/Hero.vue';
 import IconCard from '@/components/IconCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
+import ContactCard from '@/components/ContactCard.vue';
 
 @Component({
   components: {
-    HelloWorld, Hero, IconCard, InfoCard,
+    HelloWorld, Hero, IconCard, InfoCard, ContactCard,
   },
 })
 export default class Home extends Vue {}

@@ -1,6 +1,6 @@
 <template>
     <section>
-    <v-parallax v-bind:src="require('@/assets/hero.png')" height="600">
+    <v-parallax v-bind:src="image" height="600">
       <v-layout
       column
       align-center
@@ -33,6 +33,6 @@ export default Vue.extend({
         sub: String,
         link: String,
         linktext: String,
-    },
+    }
 });
 </script>

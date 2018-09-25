@@ -12,10 +12,9 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'IconCard',
+  name: 'InfoCard',
   props: {
     headline: String,
-    body: String,
   },
 });
 </script>
