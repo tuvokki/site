@@ -13,8 +13,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
+const Props = Vue.extend({
   name: 'IconCard',
   props: {
     icon: String,
@@ -22,4 +23,9 @@ export default Vue.extend({
     body: String,
   },
 });
+
+@Component({})
+export default class IconCard extends Props {
+
+}
 </script>

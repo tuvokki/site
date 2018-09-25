@@ -17,9 +17,10 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 import InfoCard from '@/components/InfoCard.vue';
 
-export default Vue.extend({
+const Props =  Vue.extend({
   name: 'ContactCard',
   components: {
     InfoCard,
@@ -29,4 +30,9 @@ export default Vue.extend({
     contactInfo: Array,
   },
 });
+
+@Component({})
+export default class ContactCard extends Props {
+
+}
 </script>

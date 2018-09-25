@@ -99,15 +99,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-import Hero from '@/components/Hero.vue';
+import Hero from '@/components/Hero.vue'; // @ is an alias to /src
 import IconCard from '@/components/IconCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import ContactCard from '@/components/ContactCard.vue';
 
 @Component({
   components: {
-    HelloWorld, Hero, IconCard, InfoCard, ContactCard,
+    Hero, IconCard, InfoCard, ContactCard,
   },
 })
 export default class Home extends Vue {}

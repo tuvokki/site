@@ -10,11 +10,17 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
+const Props = Vue.extend({
   name: 'InfoCard',
   props: {
     headline: String,
   },
 });
+
+@Component({})
+export default class InfoCard extends Props {
+
+}
 </script>
