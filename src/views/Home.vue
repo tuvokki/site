@@ -5,7 +5,9 @@
         head="Welcome stranger"
         sub="Powered by Vuetify"
         link="/login"
-        linktext="Get started"></hero>
+        linktext="Get started">
+          <img src="@/assets/vuetify.png" alt="Vuetify.js" height="200">
+        </hero>
       <section>
         <v-layout
           column
@@ -98,16 +100,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Hero from '@/components/Hero.vue'; // @ is an alias to /src
-import IconCard from '@/components/IconCard.vue';
-import InfoCard from '@/components/InfoCard.vue';
-import ContactCard from '@/components/ContactCard.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Hero from "@/components/Hero.vue"; // @ is an alias to /src
+import IconCard from "@/components/IconCard.vue";
+import InfoCard from "@/components/InfoCard.vue";
+import ContactCard from "@/components/ContactCard.vue";
 
 @Component({
   components: {
-    Hero, IconCard, InfoCard, ContactCard,
-  },
+    Hero,
+    IconCard,
+    InfoCard,
+    ContactCard
+  }
 })
 export default class Home extends Vue {}
 </script>
