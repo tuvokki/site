@@ -3,10 +3,10 @@
       <hero
         v-bind:image="require('@/assets/hero.png')"
         head="Welcome stranger"
-        sub="Powered by Vuetify"
+        sub="Live long and prosper"
         link="/login"
         linktext="Get started">
-          <img src="@/assets/vuetify.png" alt="Vuetify.js" height="200">
+          <img src="@/assets/tuvok.png" alt="tuvok.nl" height="200">
         </hero>
       <section>
         <v-layout
@@ -17,9 +17,9 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 class="headline">T.V.K. Enterprise Inc.</h2>
               <span class="subheading">
-                Cras facilisis mi vitae nunc 
+                To infinity and beyond 
               </span>
             </div>
           </v-flex>
@@ -84,7 +84,7 @@
         </v-container>
       </section>
 
-      <v-footer class="blue darken-2">
+      <v-footer class="green darken-4">
         <v-layout row wrap align-center>
           <v-flex xs12>
             <div class="white--text ml-3">
