@@ -23,18 +23,18 @@
     </section>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 const Props = Vue.extend({
-  name: "Hero",
+  name: 'Hero',
   props: {
     image: String,
     head: String,
     sub: String,
     link: String,
-    linktext: String
-  }
+    linktext: String,
+  },
 });
 
 @Component({})
