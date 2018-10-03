@@ -25,10 +25,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
 import PicoWorker from '@/views/pico-worker';
 
 @Component({})
 export default class Hero extends Vue {
+  @Prop()
   private id: number = 0;
   private image: HTMLImageElement = require('@/assets/white.png');
   private worker: PicoWorker = new PicoWorker();

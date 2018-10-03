@@ -9,7 +9,7 @@
         <img src="@/assets/tuvok.png" alt="tuvok.nl" height="200">
       </hero> -->
     <dynamic-hero
-      :id=did>
+      :id=firstHeroId>
     </dynamic-hero>
     <section>
       <v-layout
@@ -56,12 +56,9 @@
       </v-layout>
     </section>
 
-    <hero
-      v-bind:image="require('@/assets/section.png')"
-      head="Web development has never been easier"
-      sub="Kick-start your application today"
-      link="/login"
-      linktext="Get started"></hero>
+    <dynamic-hero
+      :id=secondHeroId>
+    </dynamic-hero>
 
     <section>
       <v-container grid-list-xl>
@@ -111,6 +108,7 @@ import Bottom from '@/components/Bottom.vue';
   },
 })
 export default class Home extends Vue {
-  private did = 1;
+  private firstHeroId = 1;
+  private secondHeroId = 2;
 }
 </script>

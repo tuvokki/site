@@ -23,7 +23,7 @@ export default class PicoWorker {
   public async getHero(id: number) {
     this.rpcParams.method = 'fetchhero';
     this.rpcParams.params = {
-      id: 1,
+      id,
     };
     // this.rpcParams.transformResponse = [this.yoloLala];
     // this.rpcParams.transformResponse = this.yoloLala;
