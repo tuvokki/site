@@ -1,4 +1,5 @@
-import axios, { AxiosInstance, AxiosTransformer } from 'axios';
+import axios, { AxiosInstance } from 'axios';
+import store from '@/store';
 import RpcParams from '@/views/rpc-params';
 
 export default class PicoWorker {
@@ -10,7 +11,7 @@ export default class PicoWorker {
 
   constructor() {
     this.api = axios.create({
-      baseURL: 'http://localhost:8000/',
+      baseURL: store.state.baseURL,
       timeout: 1000,
       headers: {
         // prettier-ignore
@@ -25,20 +26,8 @@ export default class PicoWorker {
     this.rpcParams.params = {
       id,
     };
-    // this.rpcParams.transformResponse = [this.yoloLala];
-    // this.rpcParams.transformResponse = this.yoloLala;
 
     const result = await this.api.post('/frontpage/rpc/', this.rpcParams);
-    // const p = JSON.parse(result.result);
-    // // FIXME: Quick fix the image url
-    // p[0].fields.image = `http://localhost:8000/uploads/${p[0].fields.image}`;
-    // this.heroOne = p[0].fields;
-
     return result.data;
   }
-
-  // prettier-ignore
-  // private yoloLala: AxiosTransformer = (data) => {
-  //   console.log(data);
-  // }
 }

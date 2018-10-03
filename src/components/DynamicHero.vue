@@ -31,7 +31,7 @@ import PicoWorker from '@/views/pico-worker';
 @Component({})
 export default class Hero extends Vue {
   @Prop()
-  private id: number = 0;
+  private id: number;
   private image: HTMLImageElement = require('@/assets/white.png');
   private worker: PicoWorker = new PicoWorker();
   private heroOne: any = {};
@@ -39,10 +39,11 @@ export default class Hero extends Vue {
   private async mounted() {
     const h = await this.worker.getHero(this.id);
     const p = JSON.parse(h.result);
+    const url = this.$store.state.baseURL;
+    const img = p[0].fields.image;
     // FIXME: Quick fix the image url
-    p[0].fields.image = `http://localhost:8000/uploads/${p[0].fields.image}`;
+    this.image = `${url}uploads/${img}` as any;
     this.heroOne = p[0].fields;
-    this.image = this.heroOne.image;
   }
 }
 </script>
