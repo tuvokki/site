@@ -1,20 +1,16 @@
 <template>
-  <div><button @click="blabla">click</button>
-    <hero
-      :image=heroOne.image
-      :head=heroOne.head
-      :sub=heroOne.sub
-      :link=heroOne.link
-      :linktext=heroOne.linktext>
-      </hero>
-    <hero
+  <div>
+    <!-- <hero
       v-bind:image="require('@/assets/hero.png')"
       head="Welcome stranger"
       sub="Live long and prosper"
       link="/login"
       linktext="Get started">
         <img src="@/assets/tuvok.png" alt="tuvok.nl" height="200">
-      </hero>
+      </hero> -->
+    <dynamic-hero
+      :id=did>
+    </dynamic-hero>
     <section>
       <v-layout
         column
@@ -97,17 +93,17 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Hero from '@/components/Hero.vue'; // @ is an alias to /src
+import Hero from '@/components/Hero.vue';
+import DynamicHero from '@/components/DynamicHero.vue';
 import IconCard from '@/components/IconCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import ContactCard from '@/components/ContactCard.vue';
-import Bottom from '@/components/Bottom.vue'; // @ is an alias to /src
-
-import PicoWorker from '@/views/pico-worker';
+import Bottom from '@/components/Bottom.vue';
 
 @Component({
   components: {
     Hero,
+    DynamicHero,
     IconCard,
     InfoCard,
     ContactCard,
@@ -115,25 +111,6 @@ import PicoWorker from '@/views/pico-worker';
   },
 })
 export default class Home extends Vue {
-  private worker: PicoWorker = new PicoWorker();
-  private heroOne: object = {
-    image: 'test',
-    head: 'test',
-    sub: 'test',
-    link: 'test',
-    linktext: 'test',
-  };
-
-  constructor() {
-    super();
-  }
-
-  private async blabla() {
-    const h = await this.worker.getHero(1);
-    const p = JSON.parse(h.result);
-    // FIXME: Quick fix the image url
-    p[0].fields.image = `http://localhost:8000/uploads/${p[0].fields.image}`;
-    this.heroOne = p[0].fields;
-  }
+  private did = 1;
 }
 </script>

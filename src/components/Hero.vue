@@ -26,8 +26,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-const Props = Vue.extend({
-  name: 'Hero',
+@Component({
   props: {
     image: String,
     head: String,
@@ -35,8 +34,6 @@ const Props = Vue.extend({
     link: String,
     linktext: String,
   },
-});
-
-@Component({})
-export default class Hero extends Props {}
+})
+export default class Hero extends Vue {}
 </script>

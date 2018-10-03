@@ -26,7 +26,7 @@ export default class PicoWorker {
       id: 1,
     };
     // this.rpcParams.transformResponse = [this.yoloLala];
-    this.rpcParams.transformResponse = this.yoloLala;
+    // this.rpcParams.transformResponse = this.yoloLala;
 
     const result = await this.api.post('/frontpage/rpc/', this.rpcParams);
     // const p = JSON.parse(result.result);
@@ -38,7 +38,7 @@ export default class PicoWorker {
   }
 
   // prettier-ignore
-  private yoloLala: AxiosTransformer = (data) => {
-    console.log(data);
-  }
+  // private yoloLala: AxiosTransformer = (data) => {
+  //   console.log(data);
+  // }
 }
