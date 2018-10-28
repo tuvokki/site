@@ -1,32 +1,57 @@
 <template>
-  <v-app light>
-    <v-toolbar class="white">
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-if="showHome" to="/" flat>Home</v-btn>
-        <v-btn to="about" flat>About</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
-  </v-app>
+    <div>
+        <display></display>
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                <div class="column is-3">
+                    <aside class="is-medium menu">
+                        <categories></categories>
+                        <tags></tags>
+                    </aside>
+                </div>
+                <div class="column is-9">
+                    <articles></articles>
+                </div>
+                </div>
+            </div>
+        </section>
+        <bottom></bottom>
+    </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
 
-const AppProps = Vue.extend({});
-
-@Component({})
-export default class App extends AppProps {
-  get title() {
-    return `Yolo (${this.$route.name})`;
-  }
-  get showHome() {
-    return this.$route.name !== 'home';
-  }
-
+<style lang="scss">
+body,
+html {
+    background: #f2f2f2;
 }
+
+pre,
+.message {
+    max-width: 960px;
+}
+
+li {
+    margin: 10px;
+}
+</style>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Display from '@/components/Display.vue';
+import Categories from '@/components/Categories.vue';
+import Tags from '@/components/Tags.vue';
+import Articles from '@/components/Articles.vue';
+import Bottom from '@/components/Bottom.vue';
+
+@Component({
+    components: {
+        Display,
+        Categories,
+        Tags,
+        Articles,
+        Bottom,
+    },
+})
+export default class App extends Vue {}
 </script>
